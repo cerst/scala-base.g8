@@ -1,4 +1,4 @@
-# Scala Minimal
+# Scala Base
 A [Giter8][g8] template for new Scala projects.  
 Also serves as a source for syncing the project directory of existing Scala projects.
 
