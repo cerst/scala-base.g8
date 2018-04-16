@@ -1,0 +1,3 @@
+[submodule "src/main/g8/scripts/gh-folder-sync"]
+	path = src/main/g8/scripts/gh-folder-sync
+	url = https://github.com/cerst/gh-folder-sync
