@@ -13,5 +13,5 @@ object Dependencies {
 
   }
 
-  val rootLibraries: Seq[ModuleID] = Seq()
+  val coreLibraries: Seq[ModuleID] = Seq()
 }
