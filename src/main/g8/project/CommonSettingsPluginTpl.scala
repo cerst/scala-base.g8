@@ -28,7 +28,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   )
 
   private def scalaSettings: Seq[Def.Setting[_]] = Seq(
-    scalaVersion := "2.12.5"
+    scalaVersion := "2.12.6"
   )
 
   // these settings are based on: http://tpolecat.github.io/2017/04/25/scalac-flags.html
@@ -91,7 +91,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   private def scalafmtSettings: Seq[Def.Setting[_]] = Seq(
     scalafmtOnCompile := true,
     scalafmtOnCompile.in(Sbt) := false,
-    scalafmtVersion := "1.4.0"
+    scalafmtVersion := "1.5.1"
   )
 
   private def wartremoverSettings: Seq[Def.Setting[_]] = Seq(
