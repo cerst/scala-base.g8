@@ -1,9 +1,12 @@
+import java.net.URL
+
 import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{scalafmtOnCompile, scalafmtVersion}
 import com.lucidchart.sbt.scalafmt.ScalafmtSbtPlugin.autoImport.Sbt
 import com.typesafe.sbt.SbtLicenseReport.autoImport._
-import sbt.Keys.{console, scalaVersion, scalacOptions}
+import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.{HeaderLicense, headerLicense}
+import sbt.Keys._
 import sbt._
-import wartremover.{Warts, wartremoverErrors}
+import wartremover.{Wart, Warts, wartremoverErrors}
 
 import scala.collection.immutable.Seq
 
@@ -12,7 +15,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
 
   protected def tplProjectSettingsPlus(additional: Def.Setting[_]*) = {
-    licenseReportSettings ++
+    licenseSettings ++
       scalaSettings ++
       scalacSettings ++
       scalafmtSettings ++
@@ -20,11 +23,22 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
       additional
   }
 
-  private def licenseReportSettings: Seq[Def.Setting[_]] = Seq(
-    licenseReportTitle := "Licenses",
-    licenseReportStyleRules := Some("table, th, td {border: 1px solid black;}"),
+  // start year is required by sbt-header when generating standard license headers
+  private def licenseSettings: Seq[Def.Setting[_]] = Seq(
+    headerLicense := Some(HeaderLicense.Custom(
+      """$license_header$
+        |""".stripMargin
+    )),
     // The ivy configurations we'd like to grab licenses for.
-    licenseConfigurations := Set("compile")
+    licenseConfigurations := Set("compile"),
+    licenseReportStyleRules := Some("table, th, td {border: 1px solid black;}"),
+    licenseReportTitle := "Licenses",
+    licenses += ("$license_type$", new URL("$license_uri$")),
+    startYear := Some($start_year$)
+  )
+
+  private def licenseReportSettings: Seq[Def.Setting[_]] = Seq(
+
   )
 
   private def scalaSettings: Seq[Def.Setting[_]] = Seq(
@@ -35,7 +49,8 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   private def scalacSettings: Seq[Def.Setting[_]] = Seq(
     scalacOptions ++= Seq(
       "-deprecation", // Emit warning and location for usages of deprecated APIs.
-      "-encoding", "utf-8", // Specify character encoding used by source files.
+      "-encoding",
+      "utf-8", // Specify character encoding used by source files.
       "-explaintypes", // Explain type errors in more detail.
       "-feature", // Emit warning and location for usages of features that should be imported explicitly.
       "-language:existentials", // Existential types (besides wildcard types) can be written and inferred
@@ -80,12 +95,12 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
       "-Ywarn-unused:privates", // Warn if a private member is unused.
       "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
     ),
-
     // "Note that the REPL can’t really cope with -Ywarn-unused:imports or -Xfatal-warnings so you should turn them off for the console."
-    scalacOptions in(Compile, console) ~= (_.filterNot(Set(
-      "-Ywarn-unused:imports",
-      "-Xfatal-warnings"
-    )))
+    scalacOptions in(Compile, console) ~= (_.filterNot(
+      Set(
+        "-Ywarn-unused:imports",
+        "-Xfatal-warnings"
+      )))
   )
 
   private def scalafmtSettings: Seq[Def.Setting[_]] = Seq(

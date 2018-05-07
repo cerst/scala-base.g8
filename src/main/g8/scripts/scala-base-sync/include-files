@@ -1,0 +1,16 @@
+# root files
+.scalafmt.conf
+
+# project files
+project/CommonSettingsPluginTpl.scala
+project/sbt-coursier-tpl.sbt
+project/sbt-dependency-graph-tpl.sbt
+project/sbt-git-tpl-sbt
+project/sbt-header-tpl.sbt
+project/sbt-license-report-tpl.sbt
+project/sbt-paradox-tpl.sbt
+project/sbt-scalafmt-tpl.sbt
+project/sbt-updates-tpl.sbt
+project/sbt-wartremover-tpl.sbt
+project/SbtGitSettingsPluginTpl.scala
+project/SbtParadoxSettingsPluginTpl.scala
