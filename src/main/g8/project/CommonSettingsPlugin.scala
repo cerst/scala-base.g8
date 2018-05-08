@@ -2,24 +2,24 @@ import java.net.URL
 
 import com.typesafe.sbt.GitPlugin.autoImport.git
 import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.{HeaderLicense, headerLicense}
-import sbt.Def
-import sbt.Keys.{licenses, organization, organizationName, startYear}
+import sbt._
+import sbt.Keys._
 
 object CommonSettingsPlugin extends CommonSettingsPluginTpl {
 
+  // the rationale for placing settings defs here is that they should (or can) not be updated automatically using the scala-base-sync script
   // in the following, organizationName and startYear would also be required by sbt-header to generate ready-made license headers
   override lazy val projectSettings: Seq[Def.Setting[_]] = tplProjectSettingsPlus(
     git.baseVersion := "0.0.0",
 
+    // TODO: see https://github.com/sbt/sbt-header#configuration for setting up a license header
     headerLicense := Some(HeaderLicense.Custom(
-      s"""Copyright (c) \${startYear.value.get} \${organizationName.value}
-         |All Rights Reserved
-         |This file is subject to the terms and conditions defined in
-         |file 'LICENSE.md', which is part of this source code package.
+      s"""TODO: define a license header
          |""".stripMargin
     )),
 
-    licenses += ("$license_type$", new URL("$license_uri$")),
+    // TODO: (e.g.: "MIT" -> "https://opensource.org/licenses/MIT")
+    licenses += "TODO: license type" -> url("https://TODO/uri/of/project/license"),
 
     organization := "$organization$",
 

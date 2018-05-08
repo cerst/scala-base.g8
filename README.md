@@ -7,9 +7,10 @@ Also serves as a source for syncing the project directory (and other shared file
 ```
 g8 https://github.com/cerst/scala-base.g8
 ```
-* Add a license in _License.md_ and double check that all other license related have been setup correctly (see _licenseSettings_ in 
-_project/CommonSettingsPlugin.scala).  
-**Especially** ensure that the value of _headerLicense_ (i.e. the header to be displayed in source files) is suitable for your purpose.
+* Set-up license information (see TODOs) in
+  * _project/CommonSettingsPlugin.scala_
+  * _LICENSE.md_ 
+
 
 ## Development
 Test your changes using:
