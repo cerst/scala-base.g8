@@ -10,6 +10,7 @@ lazy val root = (project in file("."))
       (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md"
     ),
     // trigger test compilation in projects which contain snippets to be shown in the documentation
+    // rationale: manage documentation source code where it can be compiled (e.g. <project>/src/test/paradox) but does not end up in published artifacts
     paradox in Compile := {
       val _ = (core / compile in Test).value
       (paradox in Compile).value
