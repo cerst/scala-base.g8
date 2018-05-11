@@ -1,7 +1,7 @@
 lazy val root = (project in file("."))
   .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
   .settings(
-
+    // all these settings are only relevant to the "root" project which is why they are not defined in CommonSettingsPlugin.scala
     name := "$name$-root",
 
     paradoxProperties ++= Map(

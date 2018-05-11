@@ -1,5 +1,3 @@
-import java.net.URL
-
 import com.typesafe.sbt.GitPlugin.autoImport.git
 import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.{HeaderLicense, headerLicense}
 import sbt._
