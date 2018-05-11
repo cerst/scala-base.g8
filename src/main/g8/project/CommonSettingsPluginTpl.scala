@@ -1,6 +1,9 @@
 import java.net.URL
 
-import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{scalafmtOnCompile, scalafmtVersion}
+import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{
+  scalafmtOnCompile,
+  scalafmtVersion
+}
 import com.lucidchart.sbt.scalafmt.ScalafmtSbtPlugin.autoImport.Sbt
 import com.typesafe.sbt.SbtLicenseReport.autoImport._
 import sbt.Keys._
@@ -26,7 +29,8 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
     // The ivy configurations we'd like to grab licenses for.
     licenseConfigurations := Set("compile"),
     licenseReportStyleRules := Some("table, th, td {border: 1px solid black;}"),
-    licenseReportTitle := "Licenses"
+    licenseReportTitle := normalizedName.value,
+    licenseReportTypes := Seq(MarkDown),
   )
 
   private def scalaSettings: Seq[Def.Setting[_]] = Seq(
@@ -84,7 +88,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
       "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
     ),
     // "Note that the REPL can’t really cope with -Ywarn-unused:imports or -Xfatal-warnings so you should turn them off for the console."
-    scalacOptions in(Compile, console) ~= (_.filterNot(
+    scalacOptions in (Compile, console) ~= (_.filterNot(
       Set(
         "-Ywarn-unused:imports",
         "-Xfatal-warnings"

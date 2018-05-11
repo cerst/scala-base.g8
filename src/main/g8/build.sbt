@@ -1,12 +1,21 @@
 lazy val root = (project in file("."))
   .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
   .settings(
+
     name := "$name$-root",
 
-    // trigger the licence report dump
+    paradoxProperties ++= Map(
+      "version" -> version.value
+    ),
+
     (mappings in Compile) in paradoxMarkdownToHtml ++= Seq(
-      (dumpLicenseReport).value / "Licenses.md" -> "licenses.md"
-    )
+      dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/root.md",
+      (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md"
+    ),
+
+    paradoxTheme := Some(builtinParadoxTheme("generic")),
+
+    publish := {}
 
   )
 

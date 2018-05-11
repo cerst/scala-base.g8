@@ -3,6 +3,6 @@
 @@@ index
 
 * [Changelog](changelog/index.md)
-* [Licenses](licenses.md)
+* [Licenses](licenses/index.md)
 
 @@@
