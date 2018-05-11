@@ -1,16 +1,15 @@
 # root files
-.scalafmt.conf
+src/main/g8/.scalafmt.conf
 
 # project files
-project/CommonSettingsPluginTpl.scala
-project/sbt-coursier-tpl.sbt
-project/sbt-dependency-graph-tpl.sbt
-project/sbt-git-tpl-sbt
-project/sbt-header-tpl.sbt
-project/sbt-license-report-tpl.sbt
-project/sbt-paradox-tpl.sbt
-project/sbt-scalafmt-tpl.sbt
-project/sbt-updates-tpl.sbt
-project/sbt-wartremover-tpl.sbt
-project/SbtGitSettingsPluginTpl.scala
-project/SbtParadoxSettingsPluginTpl.scala
+src/main/g8/project/CommonSettingsPluginTpl.scala
+src/main/g8/project/sbt-coursier-tpl.sbt
+src/main/g8/project/sbt-dependency-graph-tpl.sbt
+src/main/g8/project/sbt-git-tpl.sbt
+src/main/g8/project/sbt-header-tpl.sbt
+src/main/g8/project/sbt-license-report-tpl.sbt
+src/main/g8/project/sbt-paradox-tpl.sbt
+src/main/g8/project/sbt-scalafmt-tpl.sbt
+src/main/g8/project/sbt-updates-tpl.sbt
+src/main/g8/project/sbt-wartremover-tpl.sbt
+src/main/g8/project/SbtGitSettingsPluginTpl.scala
