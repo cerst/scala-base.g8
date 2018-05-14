@@ -2,6 +2,7 @@
 .scalafmt.conf
 
 # project files
+project/build.properties
 project/CommonSettingsPluginTpl.scala
 project/sbt-coursier-tpl.sbt
 project/sbt-dependency-graph-tpl.sbt
