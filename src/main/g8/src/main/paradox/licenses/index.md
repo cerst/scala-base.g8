@@ -2,7 +2,7 @@
 
 @@@ index
 
-* [Root](root.md)
-* [Core](core.md)
+* [root](root.md)
+* [core](core.md)
 
 @@@

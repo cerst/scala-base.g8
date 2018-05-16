@@ -25,6 +25,7 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
       ),
       organization := "$organization$",
       organizationName := "$organization_name$",
+      resolvers ++= Dependencies.resolvers,
       startYear := Some($start_year$)
     )
   }
