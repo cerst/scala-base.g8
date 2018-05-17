@@ -13,5 +13,4 @@ project/sbt-license-report-tpl.sbt
 project/sbt-paradox-tpl.sbt
 project/sbt-scalafmt-tpl.sbt
 project/sbt-updates-tpl.sbt
-project/sbt-wartremover-tpl.sbt
 project/SbtGitSettingsPluginTpl.scala

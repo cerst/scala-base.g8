@@ -8,7 +8,6 @@ import com.lucidchart.sbt.scalafmt.ScalafmtSbtPlugin.autoImport.Sbt
 import com.typesafe.sbt.SbtLicenseReport.autoImport._
 import sbt.Keys._
 import sbt._
-import wartremover.{Wart, Warts, wartremoverErrors}
 
 import scala.collection.immutable.Seq
 
@@ -21,7 +20,6 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
       scalaSettings ++
       scalacSettings ++
       scalafmtSettings ++
-      wartremoverSettings ++
       additional
   }
 
@@ -96,13 +94,10 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   )
 
   private def scalafmtSettings: Seq[Def.Setting[_]] = Seq(
-    scalafmtOnCompile := true,
+    // disabled as, on Mac, this frequently causes discrepancies between in-memory and disc state which messes up the code
+    scalafmtOnCompile := false,
     scalafmtOnCompile.in(Sbt) := false,
     scalafmtVersion := "1.5.1"
-  )
-
-  private def wartremoverSettings: Seq[Def.Setting[_]] = Seq(
-    wartremoverErrors ++= Warts.all
   )
 
 }
