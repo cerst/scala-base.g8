@@ -1,13 +1,30 @@
 lazy val root = (project in file("."))
-  .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
+  .enablePlugins(GitBranchPrompt, GitVersioning)
   // all these settings are only relevant to the "root" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
     name := "$name$-root",
+    // this project is not supposed to be used externally, so don't publish
+    publish := {}
+  )
+
+lazy val core = (project in file("core"))
+  .enablePlugins(GitBranchPrompt, GitVersioning)
+  .settings(
+    libraryDependencies ++= Dependencies.coreLibraries,
+    name := "$name$"
+  )
+
+lazy val doc = (project in file("doc"))
+  .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
+  // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
+  .settings(
+    name := "$name$-doc",
     // trigger dump-license-report in all other projects and rename the output
-    // (paradox uses and first heading as link name in '@@@index' containers AND cannot handle variables in links)
+    // (paradox uses the first heading as link name in '@@@index' containers AND cannot handle variables in links)
     (mappings in Compile) in paradoxMarkdownToHtml ++= Seq(
-      dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/root.md",
-      (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md"
+      (root / dumpLicenseReport).value / ((root / licenseReportTitle).value + ".md") -> "licenses/root.md",
+      (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
+      dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
     ),
     // trigger test compilation in projects which contain snippets to be shown in the documentation
     // rationale: manage documentation source code where it can be compiled (e.g. <project>/src/test/paradox) but does not end up in published artifacts
@@ -22,11 +39,4 @@ lazy val root = (project in file("."))
     paradoxTheme := Some(builtinParadoxTheme("generic")),
     // this project is not supposed to be used externally, so don't publish
     publish := {}
-  )
-
-lazy val core = (project in file("core"))
-  .enablePlugins(GitBranchPrompt, GitVersioning)
-  .settings(
-    libraryDependencies ++= Dependencies.coreLibraries,
-    name := "$name$"
   )

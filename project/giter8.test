@@ -1,1 +1,1 @@
-> ;clean;paradox;core/headerCreate;core/test;core/run
+> ;core/clean;core/headerCreate;core/test;core/run;doc/clean;doc/paradox
