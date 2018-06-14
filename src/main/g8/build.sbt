@@ -4,7 +4,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "$name$-root",
     // this project is not supposed to be used externally, so don't publish
-    publish := {}
+    skip in publish := true
   )
 
 lazy val core = (project in file("core"))
@@ -38,5 +38,5 @@ lazy val doc = (project in file("doc"))
     ),
     paradoxTheme := Some(builtinParadoxTheme("generic")),
     // this project is not supposed to be used externally, so don't publish
-    publish := {}
+    skip in publish := true
   )
