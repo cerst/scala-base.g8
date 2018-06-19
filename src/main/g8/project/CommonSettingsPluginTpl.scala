@@ -1,5 +1,3 @@
-import java.net.URL
-
 import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{
   scalafmtOnCompile,
   scalafmtVersion
