@@ -6,7 +6,6 @@ project/build.properties
 project/CommonSettingsPluginTpl.scala
 project/ModuleIDSyntax.scala
 project/sbt-coursier-tpl.sbt
-project/sbt-dependency-graph-tpl.sbt
 project/sbt-git-tpl.sbt
 project/sbt-header-tpl.sbt
 project/sbt-license-report-tpl.sbt
