@@ -1,5 +1,7 @@
 import sbt._
 
+import scala.language.implicitConversions
+
 final class ModuleIDSyntax(moduleID: ModuleID) {
 
   def %(first: Configuration,
