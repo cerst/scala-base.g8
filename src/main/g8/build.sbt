@@ -1,6 +1,5 @@
 lazy val root = (project in file("."))
   .enablePlugins(GitBranchPrompt, GitVersioning)
-  // all these settings are only relevant to the "root" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
     name := "$name$-root",
     // this project is not supposed to be used externally, so don't publish
@@ -22,7 +21,6 @@ lazy val doc = (project in file("doc"))
     // trigger dump-license-report in all other projects and rename the output
     // (paradox uses the first heading as link name in '@@@index' containers AND cannot handle variables in links)
     (mappings in Compile) in paradoxMarkdownToHtml ++= Seq(
-      (root / dumpLicenseReport).value / ((root / licenseReportTitle).value + ".md") -> "licenses/root.md",
       (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
       dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
     ),
