@@ -26,7 +26,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
     licenseConfigurations := Set("compile"),
     licenseReportStyleRules := Some("table, th, td {border: 1px solid black;}"),
     licenseReportTitle := normalizedName.value,
-    licenseReportTypes := Seq(MarkDown),
+    licenseReportTypes := Seq(MarkDown)
   )
 
   private def scalaSettings: Seq[Def.Setting[_]] = Seq(
