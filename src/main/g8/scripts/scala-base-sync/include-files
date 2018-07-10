@@ -11,7 +11,7 @@ project/sbt-coursier-tpl.sbt
 project/sbt-git-tpl.sbt
 project/sbt-header-tpl.sbt
 project/sbt-license-report-tpl.sbt
-project/sbt-paradox-tpl.sbt
+project/sbt-native-packager-tpl.sbt
 project/sbt-paradox-tpl.sbt
 project/sbt-scalafmt-tpl.sbt
 project/sbt-updates-tpl.sbt
