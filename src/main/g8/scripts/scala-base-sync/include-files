@@ -3,10 +3,10 @@
 
 # project files
 project/build.properties
-project/BuildInfoSettingsTpl.scala
+project/BuildInfoSettingsPluginTpl.scala
 project/CommonSettingsPluginTpl.scala
 project/ModuleIDSyntax.scala
-project/sbt-buildinfo.sbt
+project/sbt-buildinfo-tpl.sbt
 project/sbt-coursier-tpl.sbt
 project/sbt-git-tpl.sbt
 project/sbt-header-tpl.sbt
