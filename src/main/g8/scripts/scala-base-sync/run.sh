@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ORIGIN_TAG="v0.1.0"
+ORIGIN_TAG="v0.1.1"
 REPO_URL="https://github.com/cerst/scala-base.g8"
 SCRIPT_FOLDER_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
@@ -23,8 +23,8 @@ git clone ${REPO_URL} ${TMP_DIR}
 
 echo "Checking script tags"
 LATEST_TAG=$( cd ${TMP_DIR} && git describe --tags)
-if [ "$LATEST_TAG" neq "$ORIGIN_TAG" ]; then
-    echo "Origin tag for this script ($ORIGIN_TAG) differ from latest one ($LATEST_TAG)."
+if [ "$LATEST_TAG" != "$ORIGIN_TAG" ]; then
+    echo "Origin tag for this script ($ORIGIN_TAG) differs from latest one ($LATEST_TAG)."
     echo "Please update the scala-base-sync folder manually and retry (don't forget to remove unwanted files again)"
     exit 1
 fi
