@@ -1,13 +1,25 @@
+def publishSettings(enabled: Boolean): Seq[Def.Setting[_]] = {
+  if(!enabled){
+    Seq(skip in publish := true)
+  } else {
+    // refined as needed for publishing
+    // publishTo := ???
+    Seq()
+  }
+}
+
 lazy val root = (project in file("."))
   .enablePlugins(GitBranchPrompt, GitVersioning)
+  // this project is not supposed to be used externally, so don't publish
+  .settings(publishSettings(enabled = false))
   .settings(
-    name := "$name$-root",
-    // this project is not supposed to be used externally, so don't publish
-    skip in publish := true
+    name := "$name$-root"
   )
 
 lazy val core = (project in file("core"))
   .enablePlugins(GitBranchPrompt, GitVersioning)
+  // TODO: decide whether or not this is to be published
+  .settings(publishSettings(enabled = false))
   .settings(
     libraryDependencies ++= Dependencies.coreLibraries,
     name := "$name$"
@@ -15,6 +27,8 @@ lazy val core = (project in file("core"))
 
 lazy val doc = (project in file("doc"))
   .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
+  // this project is not supposed to be used externally, so don't publish
+  .settings(publishSettings(enabled = false))
   // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
     name := "$name$-doc",
@@ -34,7 +48,5 @@ lazy val doc = (project in file("doc"))
     paradoxProperties ++= Map(
       "version" -> version.value
     ),
-    paradoxTheme := Some(builtinParadoxTheme("generic")),
-    // this project is not supposed to be used externally, so don't publish
-    skip in publish := true
+    paradoxTheme := Some(builtinParadoxTheme("generic"))
   )
