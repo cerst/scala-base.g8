@@ -12,7 +12,7 @@ g8 https://github.com/cerst/scala-base.g8
 * Set-up license information (see TODOs) in
   * _project/CommonSettingsPlugin.scala_
   * _LICENSE.md_
-* Feel free to remove the following files if your project does not produce a runnable package
+* Feel free to exclude (by commenting with '#') the following files if your project does not produce a runnable package
   (don't forget to remove them in _/scripts/_scala-base_sync/included\_files_ as well)
   * _project/BuildInfoSettingsPluginTpl.scala_
   * _sbt-build-info-tpl.sbt_
