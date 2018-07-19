@@ -16,3 +16,6 @@ project/sbt-paradox-tpl.sbt
 project/sbt-scalafmt-tpl.sbt
 project/sbt-updates-tpl.sbt
 project/SbtGitSettingsPluginTpl.scala
+
+# project/ project files
+project/project/sbt-updates.sbt
