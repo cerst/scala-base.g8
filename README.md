@@ -14,9 +14,10 @@ g8 https://github.com/cerst/scala-base.g8
   * _LICENSE.md_
 * Feel free to exclude (by commenting with '#') the following files if your project does not produce a runnable package
   (don't forget to remove them in _/scripts/_scala-base_sync/included\_files_ as well)
+  * _project/sbt-build-info-tpl.sbt_
+  * _project/sbt-native-packager-tpl.sbt_
   * _project/BuildInfoSettingsPluginTpl.scala_
-  * _sbt-build-info-tpl.sbt_
-  * _sbt-native-packager-tpl.sbt_
+  * _project/SbtNativePackagerSettingsPluginTpl.scala_
 
 
 
