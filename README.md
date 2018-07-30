@@ -22,6 +22,16 @@ g8 https://github.com/cerst/scala-base.g8
 
 ## Configured Plugins
 
+### [Sbt Api Mappings](https://github.com/ThoughtWorksInc/sbt-api-mappings)
+
+Motivation
+* Fixes Scaladoc not being able to create even basic link to stock Scala or Java classes
+
+### [Sbt Buildinfp](https://github.com/sbt/sbt-buildinfo)
+
+Motivation
+* > sbt-buildinfo generates Scala source from your build definitions.
+
 ### [Sbt Coursier](http://get-coursier.io/)
 
 Motivation
