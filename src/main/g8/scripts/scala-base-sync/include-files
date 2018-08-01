@@ -6,6 +6,8 @@ project/build.properties
 project/BuildInfoSettingsPluginTpl.scala
 project/CommonSettingsPluginTpl.scala
 project/ModuleIDSyntax.scala
+project/SbtGitSettingsPluginTpl.scala
+project/SbtNativePackagerSettingsPluginTpl.scala
 project/sbt-api-mapping-tpl.sbt
 project/sbt-buildinfo-tpl.sbt
 project/sbt-coursier-tpl.sbt
@@ -16,8 +18,6 @@ project/sbt-native-packager-tpl.sbt
 project/sbt-paradox-tpl.sbt
 project/sbt-scalafmt-tpl.sbt
 project/sbt-updates-tpl.sbt
-project/SbtGitSettingsPluginTpl.scala
-project/SbtNativePackagerSettingsPluginTpl.scala
 
 # project/ project files
 project/project/sbt-updates.sbt
