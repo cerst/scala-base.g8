@@ -3,5 +3,6 @@
 $ must-mirror scripts/scala-base-sync/no-dependency-updates.txt project/target/dependency-updates.txt
 
 # test basic release commands
-> ;core/clean;core/headerCreate;core/test;core/run;doc/clean;doc/paradox
+> ;versionToFile;core/clean;core/headerCreate;core/test;core/run;doc/clean;doc/paradox
+$ exists target/version-to-file/version
 
