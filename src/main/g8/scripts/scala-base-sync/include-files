@@ -2,6 +2,7 @@
 .scalafmt.conf
 
 # project files
+project/build.sbt
 project/build.properties
 project/BuildInfoSettingsPluginTpl.scala
 project/CommonSettingsPluginTpl.scala
@@ -19,5 +20,5 @@ project/sbt-paradox-tpl.sbt
 project/sbt-scalafmt-tpl.sbt
 project/sbt-updates-tpl.sbt
 
-# project/ project files
+# project/project files
 project/project/sbt-updates.sbt
