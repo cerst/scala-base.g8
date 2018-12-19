@@ -32,7 +32,7 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
   )
 
   private def scalaSettings: Seq[Def.Setting[_]] = Seq(
-    scalaVersion := "2.12.7",
+    scalaVersion := "2.12.8",
     versionToFile := {
       val file = target.value / "version-to-file" / "version"
       IO.write(file, version.value)
