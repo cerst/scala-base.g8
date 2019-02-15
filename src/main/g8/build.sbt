@@ -9,6 +9,7 @@ def publishSettings(enabled: Boolean): Seq[Def.Setting[_]] = {
 }
 
 lazy val root = (project in file("."))
+  .aggregate(core, doc)
   .enablePlugins(GitBranchPrompt, GitVersioning)
   // this project is not supposed to be used externally, so don't publish
   .settings(publishSettings(enabled = false))
@@ -26,6 +27,7 @@ lazy val core = (project in file("core"))
   )
 
 lazy val doc = (project in file("doc"))
+  .dependsOn(core)
   .enablePlugins(GitBranchPrompt, GitVersioning, ParadoxPlugin)
   // this project is not supposed to be used externally, so don't publish
   .settings(publishSettings(enabled = false))
@@ -38,12 +40,6 @@ lazy val doc = (project in file("doc"))
       (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
       dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
     ),
-    // trigger test compilation in projects which contain snippets to be shown in the documentation
-    // rationale: manage documentation source code where it can be compiled (e.g. <project>/src/test/paradox) but does not end up in published artifacts
-    paradox in Compile := {
-      val _ = (core / compile in Test).value
-      (paradox in Compile).value
-    },
     // properties to be accessible from within the documentation
     paradoxProperties ++= Map(
       "version" -> version.value
