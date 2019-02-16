@@ -40,6 +40,11 @@ lazy val doc = (project in file("doc"))
       (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
       dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
     ),
+    // trigger code compilation of example code
+    paradox in Compile := {
+      val _ = (compile in Compile).value
+      (paradox in Compile).value
+    },
     // properties to be accessible from within the documentation
     paradoxProperties ++= Map(
       "version" -> version.value
