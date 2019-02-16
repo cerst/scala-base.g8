@@ -1,8 +1,3 @@
-import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{
-  scalafmtOnCompile,
-  scalafmtVersion
-}
-import com.lucidchart.sbt.scalafmt.ScalafmtSbtPlugin.autoImport.Sbt
 import com.typesafe.sbt.SbtLicenseReport.autoImport._
 import sbt.Keys._
 import sbt._
@@ -19,7 +14,6 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
     licenseReportSettings ++
       scalaSettings ++
       scalacSettings ++
-      scalafmtSettings ++
       additional
   }
 
@@ -95,13 +89,6 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
         "-Ywarn-unused:imports",
         "-Xfatal-warnings"
       )))
-  )
-
-  private def scalafmtSettings: Seq[Def.Setting[_]] = Seq(
-    // disabled as, on Mac, this frequently causes discrepancies between in-memory and disc state which messes up the code
-    scalafmtOnCompile := false,
-    scalafmtOnCompile.in(Sbt) := false,
-    scalafmtVersion := "1.5.1"
   )
 
 }
