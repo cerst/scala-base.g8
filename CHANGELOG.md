@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+* Predefine a release using sbt-site and sbt-ghpages
+* Bump various library and plugin versions
+* Add .gitignore for temporary scala-base clone directory
+
 ## 0.3.0
 * Add _build.sbt_ to _/project_ to control the Scala version of the build
     * required to avoid an outdated Scala version failing the task to search for plugin updates
