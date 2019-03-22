@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.1+
+* Fix _cat_ directory in _scripts/release/run.sh_ 
+
 ## 0.5.0
 * Fix path in _include-files_ (publish -> release)
 

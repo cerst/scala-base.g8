@@ -21,7 +21,7 @@ run_pre_release_tasks() {
 
 read_and_confirm_version() {
     # pipe sbt output to /dev/null as it otherwise interferes with the variable assignment using cat
-    PROJECT_VERSION=$(cat target/version-to-file/version) \
+    PROJECT_VERSION=$(cat ${PROJECT_ROOT_ABS_PATH}/target/version-to-file/version) \
     && echo "" \
     && echo "Do you want to publish v$PROJECT_VERSION (y/n)?" \
     && while true; do
