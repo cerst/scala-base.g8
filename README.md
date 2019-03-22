@@ -43,6 +43,15 @@ Relevant Commands:
   * Render a dependency tree including eviction information (printed yellow)
   * Slightly better visualization compared to [sbt-dependency-graph](https://github.com/jrudolph/sbt-dependency-graph) (IMHO)
   
+### [Sbt ghpages](https://github.com/sbt/sbt-ghpages)
+
+Motivation
+* publish documentation via Github pages
+
+Relevant Commands
+* _ghpagesPushSite_
+  * Copies and pushes documentation into the Github pages branch  
+  
 ### [Sbt Git](https://github.com/sbt/sbt-git)
 
 Motivation
@@ -71,7 +80,7 @@ Motivation
 * Build website documentation based on markdown
 * Variable and snippet inclusion
 
-Relevant Commands
+Relevant Commands (normally, use the _sbt-site_ ones is enough)
 * _paradox_
   * generate documentation site into _target/paradox/site/main_
 * _paradoxBrowse_
@@ -81,7 +90,20 @@ Relevant Commands
 ### [Sbt Scalafmt](https://scalameta.org/scalafmt/)
 
 Motivation
-* thorough code formatting (recommendation: use Intellij plugin)
+* thorough code formatting (recommendation: use Intellij plugin configured as format-on-save)
+
+### [Sbt Site](https://www.scala-sbt.org/sbt-site/index.html)
+
+Motivation
+* Integration requirement for _sbt-ghpages_
+* Allows for keeping only the latest documentation in the main branch while not deleting old documentation
+
+Relevant Commands
+* _makeSite_
+  * generate documentation site into _target/site_
+* _previewSite_
+  * generate documentation and make it available at _localhost:4000_
+  
 
 ### [Sbt Updates](https://scalameta.org/scalafmt/)
 

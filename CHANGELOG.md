@@ -1,7 +1,8 @@
 # Changelog
 
 ## 0.5.1+
-* Fix _cat_ directory in _scripts/release/run.sh_ 
+* Fix _cat_ directory in _scripts/release/run.sh_
+* Update _README_ concerning plugins added in v0.4.0 
 
 ## 0.5.0
 * Fix path in _include-files_ (publish -> release)
