@@ -26,4 +26,4 @@ project/sbt-updates-tpl.sbt
 project/project/sbt-updates.sbt
 
 # scripts
-scripts/publish/run.sh
+scripts/release/run.sh

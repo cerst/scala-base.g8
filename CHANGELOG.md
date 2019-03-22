@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0
+* Fix path in _include-files_ (publish -> release)
+
 ## 0.4.0
 * Predefine a release using sbt-site and sbt-ghpages
 * Bump various library and plugin versions
