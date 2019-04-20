@@ -1,6 +1,6 @@
 def publishSettings(enabled: Boolean): Seq[Def.Setting[_]] = {
   if(!enabled){
-    Seq(skip in publish := true)
+    skip in publish := true
   } else {
     // refined as needed for publishing
     // publishTo := ???
