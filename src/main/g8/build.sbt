@@ -11,7 +11,7 @@ def publishSettings(enabled: Boolean): Seq[Def.Setting[_]] = {
 lazy val root = (project in file("."))
   .aggregate(core, doc)
   .enablePlugins(GitBranchPrompt, GitVersioning)
-  // this project is not supposed to be used externally, so don't publish
+  // root intentionally does not contain any code, so don't publish
   .settings(publishSettings(enabled = false))
   .settings(
     name := "$name$-root"
