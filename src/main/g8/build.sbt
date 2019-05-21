@@ -43,8 +43,8 @@ lazy val doc = (project in file("doc"))
       (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
       dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
     ),
-    // trigger code compilation of example code
-    paradox in Paradox := {
+    // trigger code compilation of example code (must be in Configuration 'Compile' to ensure dumpLicenseReport is triggered
+    paradox in Compile := {
       val _ = (compile in Compile).value
       (paradox in Paradox).value
     },
