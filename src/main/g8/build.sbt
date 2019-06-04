@@ -40,8 +40,7 @@ lazy val doc = (project in file("doc"))
     // trigger dump-license-report in all other projects and rename the output
     // (paradox uses the first heading as link name in '@@@index' containers AND cannot handle variables in links)
     (mappings in Paradox) in paradoxMarkdownToHtml ++= Seq(
-      (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md",
-      dumpLicenseReport.value / (licenseReportTitle.value + ".md") -> "licenses/doc.md"
+      (core / dumpLicenseReport).value / ((core / licenseReportTitle).value + ".md") -> "licenses/core.md"
     ),
     // trigger code compilation of example code (must be in Configuration 'Compile' to ensure dumpLicenseReport is triggered
     paradox in Compile := {
