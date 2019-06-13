@@ -1,8 +1,9 @@
 # Changelog
 
-## 0.5.1+
+## 0.6.0
 * Fix _cat_ directory in _scripts/release/run.sh_
-* Update _README_ concerning plugins added in v0.4.0 
+* Update _README_ concerning plugins added in v0.4.0
+* Extend build to set-up cross-publish based on Scala 2.13 
 
 ## 0.5.0
 * Fix path in _include-files_ (publish -> release)

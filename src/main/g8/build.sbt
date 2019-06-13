@@ -1,27 +1,21 @@
-def publishSettings(enabled: Boolean): Seq[Def.Setting[_]] = {
-  if(!enabled){
-    skip in publish := true
-  } else {
-    // refined as needed for publishing
-    // publishTo := ???
-    Seq()
-  }
-}
-
 lazy val root = (project in file("."))
   .aggregate(core, doc)
   .enablePlugins(GitBranchPrompt, GitVersioning)
   // root intentionally does not contain any code, so don't publish
-  .settings(publishSettings(enabled = false))
+  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
+    // crossScalaVersions must be set to Nil on the aggregating project
+    // https: //www.scala-sbt.org/1.x/docs/Cross-Build.html#Cross+building+a+project
+    crossScalaVersions := Nil,
     name := "$name$-root"
   )
 
 lazy val core = (project in file("core"))
   .enablePlugins(GitBranchPrompt, GitVersioning)
   // TODO: decide whether or not this is to be published
-  .settings(publishSettings(enabled = false))
+  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
+    crossScalaVersions := CommonSettingsPlugin.crossScalaVersions,
     libraryDependencies ++= Dependencies.coreLibraries,
     name := "$name$"
   )
@@ -31,9 +25,11 @@ lazy val doc = (project in file("doc"))
   .dependsOn(core)
   .enablePlugins(GhpagesPlugin, GitBranchPrompt, GitVersioning, ParadoxSitePlugin, PreprocessPlugin)
   // this project is not supposed to be used externally, so don't publish
-  .settings(publishSettings(enabled = false))
+  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
+    // make sure that the example codes compiles in all cross Scala versions
+    crossScalaVersions := CommonSettingsPlugin.crossScalaVersions,
     // only delete index.html which to put a new latest version link in to place but retain the old doc
     includeFilter in ghpagesCleanSite := "index.html",
     name := "$name$-doc",
