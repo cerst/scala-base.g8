@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+* Replace sbt-git with sbt-dynver
+* Bump various plugin versions
+
 ## 0.6.0
 * Fix _cat_ directory in _scripts/release/run.sh_
 * Update _README_ concerning plugins added in v0.4.0

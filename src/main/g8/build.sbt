@@ -1,6 +1,5 @@
 lazy val root = (project in file("."))
   .aggregate(core, doc)
-  .enablePlugins(GitBranchPrompt, GitVersioning)
   // root intentionally does not contain any code, so don't publish
   .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
@@ -11,7 +10,6 @@ lazy val root = (project in file("."))
   )
 
 lazy val core = (project in file("core"))
-  .enablePlugins(GitBranchPrompt, GitVersioning)
   // TODO: decide whether or not this is to be published
   .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
@@ -23,7 +21,7 @@ lazy val core = (project in file("core"))
 // TODO: set-up a gh-pages branch as explained here: https://github.com/sbt/sbt-ghpages#initializing-the-gh-pages-branch
 lazy val doc = (project in file("doc"))
   .dependsOn(core)
-  .enablePlugins(GhpagesPlugin, GitBranchPrompt, GitVersioning, ParadoxSitePlugin, PreprocessPlugin)
+  .enablePlugins(GhpagesPlugin, ParadoxSitePlugin, PreprocessPlugin)
   // this project is not supposed to be used externally, so don't publish
   .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
