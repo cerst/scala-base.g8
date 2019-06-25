@@ -36,12 +36,17 @@ Motivation
 ### [Sbt Coursier](http://get-coursier.io/)
 
 Motivation
-* Fast(er) dependency resolution and fetching.  
+* Fast(er) dependency resolution and fetching.
 
 Relevant Commands:
 * _coursierDependencyTree_
   * Render a dependency tree including eviction information (printed yellow)
   * Slightly better visualization compared to [sbt-dependency-graph](https://github.com/jrudolph/sbt-dependency-graph) (IMHO)
+  
+### [Sbt Dynver](https://github.com/dwijnand/sbt-dynver)
+
+Motivation
+* Derives versions similar to _sbt-git_ but without additionally needed configuration.
   
 ### [Sbt ghpages](https://github.com/sbt/sbt-ghpages)
 
