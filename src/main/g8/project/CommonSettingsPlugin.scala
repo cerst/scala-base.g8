@@ -13,7 +13,6 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
   override lazy val projectSettings: Seq[Def.Setting[_]] = {
     tplProjectSettingsPlus(scalaVersionValue)(
       developers := List(Developer("$developer_id$", "$developer_name$", "$developer_email$", url("$developer_url$"))),
-      git.baseVersion := "0.0.0",
       // basically only needed for sbt-ghpages
       git.remoteRepo := "git@github.com:$developer_id$/$name$.git",
       // TODO: see https://github.com/sbt/sbt-header#configuration for setting up a license header
