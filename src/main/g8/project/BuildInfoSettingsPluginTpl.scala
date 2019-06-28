@@ -1,4 +1,3 @@
-import com.typesafe.sbt.GitPlugin.autoImport.git
 import sbt.Keys.{name, sbtVersion, scalaVersion, version}
 import sbt.{AutoPlugin, Def, Plugins}
 import sbtbuildinfo.BuildInfoPlugin
@@ -17,7 +16,6 @@ object BuildInfoSettingsPluginTpl extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = {
     // values to be generated of members of the build info object
     buildInfoKeys := Seq[BuildInfoKey](
-      BuildInfoKey.setting(git.gitHeadCommit),
       name,
       sbtVersion,
       scalaVersion,
