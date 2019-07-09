@@ -11,7 +11,7 @@ project/SbtNativePackagerSettingsPluginTpl.scala
 project/sbt-api-mappings-tpl.sbt
 project/sbt-buildinfo-tpl.sbt
 project/sbt-coursier-tpl.sbt
-project/sbt-dynver.tpl.sbt
+project/sbt-dynver-tpl.sbt
 project/sbt-ghpages-tpl.sbt
 project/sbt-header-tpl.sbt
 project/sbt-license-report-tpl.sbt
