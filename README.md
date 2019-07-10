@@ -28,7 +28,7 @@ g8 https://github.com/cerst/scala-base.g8
 Motivation
 * Fixes Scaladoc not being able to create even basic link to stock Scala or Java classes
 
-### [Sbt Buildinfp](https://github.com/sbt/sbt-buildinfo)
+### [Sbt Buildinfo](https://github.com/sbt/sbt-buildinfo)
 
 Motivation
 * > sbt-buildinfo generates Scala source from your build definitions.
@@ -57,12 +57,6 @@ Relevant Commands
 * _ghpagesPushSite_
   * Copies and pushes documentation into the Github pages branch  
   
-### [Sbt Git](https://github.com/sbt/sbt-git)
-
-Motivation
-* Deduce project version based on git information (tag, commit-id, etc)
-* Show Git branch in Sbt terminal
-
 ### [Sbt Header](https://github.com/sbt/sbt-header)
 
 Motivation
