@@ -1,4 +1,3 @@
-import com.typesafe.sbt.GitPlugin.autoImport.git
 import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.{HeaderLicense, headerLicense}
 import sbt.Keys._
 import sbt._
@@ -13,8 +12,6 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
   override lazy val projectSettings: Seq[Def.Setting[_]] = {
     tplProjectSettingsPlus(scalaVersionValue)(
       developers := List(Developer("$developer_id$", "$developer_name$", "$developer_email$", url("$developer_url$"))),
-      // basically only needed for sbt-ghpages
-      git.remoteRepo := "git@github.com:$developer_id$/$name$.git",
       // TODO: see https://github.com/sbt/sbt-header#configuration for setting up a license header
       headerLicense := Some(
         HeaderLicense.Custom(
@@ -29,7 +26,7 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
       organization := "$organization$",
       organizationName := "$organization_name$",
       resolvers ++= Dependencies.resolvers,
-      scmInfo := Some(ScmInfo(homepage.value.get, git.remoteRepo.value)),
+      scmInfo := Some(ScmInfo(homepage.value.get, "git@github.com:$developer_id$/$name$.git")),
       startYear := Some($start_year$)
     )
   }
@@ -38,9 +35,11 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
     if(!enabled){
       skip in publish := true
     } else {
-      // refined as needed for publishing
-      // publishTo := ???
-      Seq()
+      // refine as needed for publishing
+      // publishTo := Some(if (isSnapshot.value) ??? else ???)
+      Seq(
+        publishMavenStyle := true
+      )
     }
   }
 

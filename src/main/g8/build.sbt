@@ -26,6 +26,8 @@ lazy val doc = (project in file("doc"))
   .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
+    // target for ghpages
+    git.remoteRepo := scmInfo.value.get.connection,
     // make sure that the example codes compiles in all cross Scala versions
     crossScalaVersions := CommonSettingsPlugin.crossScalaVersions,
     // only delete index.html which to put a new latest version link in to place but retain the old doc
