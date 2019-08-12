@@ -1,8 +1,8 @@
 lazy val root = (project in file("."))
   .aggregate(core, doc)
-  // root intentionally does not contain any code, so don't publish
-  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
+    // root intentionally does not contain any code, so don't publish
+    CommonSettingsPlugin.publishSettings(enabled = false),
     // crossScalaVersions must be set to Nil on the aggregating project
     // https: //www.scala-sbt.org/1.x/docs/Cross-Build.html#Cross+building+a+project
     crossScalaVersions := Nil,
@@ -10,10 +10,10 @@ lazy val root = (project in file("."))
   )
 
 lazy val core = (project in file("core"))
-  // TODO: decide whether or not this is to be published
-  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   .settings(
-    crossScalaVersions := CommonSettingsPlugin.crossScalaVersions,
+    // TODO: decide whether or not this is to be published
+    CommonSettingsPlugin.publishSettings(enabled = false),
+    crossScalaVersions := CommonSettingsPlugin.crossScalaVersionValues,
     libraryDependencies ++= Dependencies.coreLibraries,
     name := "$name$"
   )
@@ -22,14 +22,14 @@ lazy val core = (project in file("core"))
 lazy val doc = (project in file("doc"))
   .dependsOn(core)
   .enablePlugins(GhpagesPlugin, ParadoxSitePlugin, PreprocessPlugin)
-  // this project is not supposed to be used externally, so don't publish
-  .settings(CommonSettingsPlugin.publishSettings(enabled = false))
   // all these settings are only relevant to the "doc" project which is why they are not defined in CommonSettingsPlugin.scala
   .settings(
+    // this project is not supposed to be used externally, so don't publish
+    CommonSettingsPlugin.publishSettings(enabled = false),
     // target for ghpages
     git.remoteRepo := scmInfo.value.get.connection,
     // make sure that the example codes compiles in all cross Scala versions
-    crossScalaVersions := CommonSettingsPlugin.crossScalaVersions,
+    crossScalaVersions := CommonSettingsPlugin.crossScalaVersionValues,
     // only delete index.html which to put a new latest version link in to place but retain the old doc
     includeFilter in ghpagesCleanSite := "index.html",
     name := "$name$-doc",
