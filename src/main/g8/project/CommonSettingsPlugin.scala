@@ -5,7 +5,7 @@ import sbt._
 object CommonSettingsPlugin extends CommonSettingsPluginTpl {
 
   lazy val scalaVersionValue = "2.13.0"
-  lazy val crossScalaVersionValues: Seq[String] = List("2.12.9", scalaVersionValue)
+  lazy val crossScalaVersionValues: Seq[String] = List("2.12.10", scalaVersionValue)
 
   // the rationale for placing settings defs here is that they should (or can) not be updated automatically using the scala-base-sync script
   // in the following, organizationName and startYear would also be required by sbt-header to generate ready-made license headers
@@ -27,7 +27,8 @@ object CommonSettingsPlugin extends CommonSettingsPluginTpl {
       organizationName := "$organization_name$",
       resolvers ++= Dependencies.resolvers,
       scmInfo := Some(ScmInfo(homepage.value.get, "git@github.com:$developer_id$/$name$.git")),
-      startYear := Some($start_year$)
+      startYear := Some($start_year$),
+      turbo := true
     )
   }
 

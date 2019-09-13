@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0
+* Upgrade to Sbt 1.3.0 and thus remove sbt-coursier (remove from included-files)
+
 ## 0.7.0
 * Replace sbt-git with sbt-dynver
 * Bump various plugin versions

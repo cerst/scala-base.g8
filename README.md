@@ -34,6 +34,7 @@ Motivation
 * > sbt-buildinfo generates Scala source from your build definitions.
 
 ### [Sbt Coursier](http://get-coursier.io/)
+Included in SBT >= 1.3.0
 
 Motivation
 * Fast(er) dependency resolution and fetching.
