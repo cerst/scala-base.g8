@@ -80,23 +80,6 @@ trait CommonSettingsPluginTpl extends AutoPlugin {
       "-Ycache-plugin-class-loader:last-modified", // Enables caching of classloaders for compiler plugins
       "-Ycache-macro-class-loader:last-modified" // and macro definitions. This can lead to performance improvements.
     ),
-    CrossVersion.partialVersion(scalaVersionValue) match {
-      // these were removed in Scala 2.13 (not all flags seem to have been mentioned explicitly ...)
-      //    https://github.com/scala/scala/pull/6505
-      //    https://github.com/scala/scala/pull/6309#issuecomment-379250839
-      case Some((2, scalaMajor)) if scalaMajor == 12 =>
-        scalacOptions ++= Seq(
-          "-Xfuture", // Turn on future language features.
-          "-Xlint:by-name-right-associative", // By-name parameter of right associative operator.
-          "-Xlint:inaccessible", // Warn about inaccessible types in method signatures.
-          "-Xlint:unsound-match", // Pattern match may not be typesafe.
-          "-Yno-adapted-args", // Do not adapt an argument list (either by inserting () or creating a tuple) to match the receiver.
-          "-Ypartial-unification" // Enable partial unification in type constructor inference.
-        )
-      case _ =>
-        scalacOptions ++= Seq.empty
-
-    },
     // "Note that the REPL can’t really cope with -Ywarn-unused:imports or -Xfatal-warnings so you should turn them off for the console."
     scalacOptions in (Compile, console) ~= (_.filterNot(
       Set(
