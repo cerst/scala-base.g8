@@ -4,7 +4,7 @@ import sbt._
 
 object CommonSettingsPlugin extends CommonSettingsPluginTpl {
 
-  lazy val scalaVersionValue = "2.13.0"
+  lazy val scalaVersionValue = "2.13.1"
   lazy val crossScalaVersionValues: Seq[String] = List("2.12.10", scalaVersionValue)
 
   // the rationale for placing settings defs here is that they should (or can) not be updated automatically using the scala-base-sync script

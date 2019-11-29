@@ -7,7 +7,6 @@ project/build.properties
 project/BuildInfoSettingsPluginTpl.scala
 project/CommonSettingsPluginTpl.scala
 project/ModuleIDSyntax.scala
-project/SbtNativePackagerSettingsPluginTpl.scala
 project/sbt-api-mappings-tpl.sbt
 project/sbt-buildinfo-tpl.sbt
 project/sbt-dynver-tpl.sbt
