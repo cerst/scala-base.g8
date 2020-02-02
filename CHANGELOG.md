@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0+
+* Compact the build as good as possible
+* Remove the setup and script to update from this repository
+* Move plugin descriptions into _project/plugins.sbt_
+
 ## 0.8.0
 * Upgrade to Sbt 1.3.0 and thus remove sbt-coursier (remove from included-files)
 
