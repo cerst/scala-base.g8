@@ -18,7 +18,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.3")
 // generate and update source code license headers
 // useful commands:
 //    headerCreate
-addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.4.0")
+addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.0")
 
 // https://github.com/sbt/sbt-license-report
 // generate a list of licenses for all dependencies
@@ -31,14 +31,14 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.2.0")
 // useful commands:
 //    universal:stage
 //    docker:publish[Local]
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.6.1")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.3")
 
 // https://github.com/lightbend/paradox
 // build documentation website using Markdown with support for build values and code snippets
 // useful commands:
 //    paradox - generate documentation site into target/paradox/site/main
 //    paradoxBrowse - run paradox and open browser
-addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.6.8")
+addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.8.0")
 
 // https://github.com/sbt/sbt-pgp
 // pgp-sign releases
@@ -46,7 +46,7 @@ addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.1")
 
 // https://scalameta.org/scalafmt/
 // thorough code formatting (recommendation: use Intellij plugin configured as format-on-save)
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.3.1")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.0")
 
 // https://www.scala-sbt.org/sbt-site/index.html
 // integration requirement for sbt-ghpages
@@ -58,7 +58,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.4.0")
 
 // https://github.com/xerial/sbt-sonatype
 // publish artifacts to Sonatype
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.8.1")
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.3")
 
 // https://github.com/rtimush/sbt-updates
 // check for new releases of plugins and dependencies
@@ -66,4 +66,4 @@ addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.8.1")
 // don't forget to change <project-root>/project/project/sbt-updates.sbt as well
 // useful commands
 //    dependencyUpdates - list possible updates
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.5.0")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.5.1")
