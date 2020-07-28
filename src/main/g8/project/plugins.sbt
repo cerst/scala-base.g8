@@ -31,7 +31,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.2.0")
 // useful commands:
 //    universal:stage
 //    docker:publish[Local]
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.3")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.4")
 
 // https://github.com/lightbend/paradox
 // build documentation website using Markdown with support for build values and code snippets
