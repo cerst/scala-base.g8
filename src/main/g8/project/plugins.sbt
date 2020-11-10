@@ -1,9 +1,3 @@
-// http://get-coursier.io/
-// fast(er) dependency resolution and fetching
-// useful commands:
-//    coursierDependencyTree - render a dependency tree including eviction information (printed yellow)
-addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.3")
-
 // https://github.com/dwijnand/sbt-dynver
 // derive and set project versions based on Git meta data
 addSbtPlugin("com.dwijnand" % "sbt-dynver" % "4.1.1")
@@ -31,7 +25,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.2.0")
 // useful commands:
 //    universal:stage
 //    docker:publish[Local]
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.4")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.6")
 
 // https://github.com/lightbend/paradox
 // build documentation website using Markdown with support for build values and code snippets
@@ -54,15 +48,15 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.2")
 // useful commands
 //    makeSite - generate documentation site into target/site
 //    previewSite - generate documentation and make it available at localhost:4000
-addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.4.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.4.1")
 
 // https://github.com/xerial/sbt-sonatype
 // publish artifacts to Sonatype
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.4")
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.5")
 
 // https://github.com/DavidGregory084/sbt-tpolecat
 // automatically sets valuable compiler flags
-addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.13")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.15")
 
 // https://github.com/rtimush/sbt-updates
 // check for new releases of plugins and dependencies
