@@ -25,18 +25,18 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.2.0")
 // useful commands:
 //    universal:stage
 //    docker:publish[Local]
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.6")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.8.0")
 
 // https://github.com/lightbend/paradox
 // build documentation website using Markdown with support for build values and code snippets
 // useful commands:
 //    paradox - generate documentation site into target/paradox/site/main
 //    paradoxBrowse - run paradox and open browser
-addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.8.0")
+addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.9.1")
 
 // https://github.com/sbt/sbt-pgp
 // pgp-sign releases
-addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.1")
+addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.1.1")
 
 // https://scalameta.org/scalafmt/
 // thorough code formatting (recommendation: use Intellij plugin configured as format-on-save)
@@ -56,7 +56,7 @@ addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.5")
 
 // https://github.com/DavidGregory084/sbt-tpolecat
 // automatically sets valuable compiler flags
-addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.15")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.16")
 
 // https://github.com/rtimush/sbt-updates
 // check for new releases of plugins and dependencies
