@@ -6,13 +6,13 @@ object ReleaseSettings {
 
   private lazy val library: Seq[Def.Setting[_]] = Seq(
     developers := List(Developer("$developer_id$", "$developer_name$", "$developer_email$", url("$developer_url$"))),
-    homepage := Some(CommonValues.homepage),
+    homepage := Some(SharedValues.homepage),
     // TODO: decide which license to use and update LICENSE.md in the root directory
     // keep consistent with DefaultSettingsPlugin.sbtHeaderSettings
     licenses += "MIT" -> url("https://opensource.org/licenses/MIT"),
     publishMavenStyle := true,
     publishTo := sonatypePublishToBundle.value,
-    scmInfo := Some(ScmInfo(CommonValues.homepage, CommonValues.connection))
+    scmInfo := Some(ScmInfo(SharedValues.homepage, "git@github.com:$developer_id$/$name$.git"))
   )
 
   // https://www.lightbend.com/blog/scala-inliner-optimizer

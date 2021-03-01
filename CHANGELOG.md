@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.0+
+* Remove documentation setup (including sbt-paradox, sbt-site)
+* Remove sbt-native-packager (easy to re-add, no custom configuration, avoids having to manage its version)
+* Improve release script utility
+
 ## 0.9.0+
 * Compact the build as good as possible
 * Remove the setup and script to update from this repository
