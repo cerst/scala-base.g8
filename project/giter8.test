@@ -1,8 +1,0 @@
-# test that all plugins are up-to-date by comparing report with an empty file
-> ;reload plugins;dependencyUpdatesReport;reload return
-$ must-mirror scripts/release/no-dependency-updates.txt project/target/dependency-updates.txt
-
-# test basic release commands
-> ;versionToFile;core/clean;core/headerCreate;core/test;core/run;doc/clean;doc/makeSite
-$ exists target/version-to-file/version
-

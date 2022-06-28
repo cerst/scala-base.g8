@@ -14,5 +14,5 @@ g8 https://github.com/cerst/scala-base.g8
 ## Development
 Test your changes using:
 ```
-sbt g8Test
+sh script/test/run.sh
 ```
